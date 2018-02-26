@@ -26,3 +26,15 @@ clean:
 	git clean -Xfd
 	$(CC) -C $(JOB_NAME)
 	if [[ -a "$(OUTPUT_NAME)" ]]; then rm -rv $(OUTPUT_NAME)/; fi;
+
+spellcheck:
+	./tools/spellcheck.sh
+
+ci: spellcheck compile
+
+clean:
+	git clean -Xfd
+	$(CC) -C $(JOB_NAME)
+	if [[ -a "$(OUTPUT_NAME)" ]]; then rm -rv $(OUTPUT_NAME)/; fi;
+
+.PHONY: compile
