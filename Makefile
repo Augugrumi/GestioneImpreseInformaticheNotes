@@ -10,6 +10,8 @@ JOB_NAME=-jobname='$(OUTPUT_NAME)'
 CCFLAGS= -pdflatex='pdflatex -interaction=nonstopmode' -pdf
 SHELL := /bin/bash #Need bash not shell
 
+export EXTRA_CCFLAGS;
+
 all: compile
 
 compile:
@@ -20,7 +22,7 @@ compile:
 		echo "\input{$$i}" >> res/$(LIST_NAME); \
 	done; \
 	$(CC) -C $(JOB_NAME); \
-	$(CC) $(CCFLAGS) $(JOB_NAME); \
+	$(CC) $(CCFLAGS) $(EXTRA_CCFLAGS) $(JOB_NAME); \
 
 clean:
 	git clean -Xfd
@@ -31,6 +33,13 @@ spellcheck:
 	./tools/spellcheck.sh
 
 ci: spellcheck compile
+
+watch:
+	@while true; do \
+		make --silent; \
+		inotifywait -qre close_write res/sections; \
+	done
+
 
 clean:
 	git clean -Xfd
