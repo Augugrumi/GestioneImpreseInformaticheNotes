@@ -8,6 +8,7 @@ MAIN_FILE= main
 CC= latexmk
 JOB_NAME=-jobname='$(OUTPUT_NAME)'
 CCFLAGS= -pdflatex='pdflatex -interaction=nonstopmode' -pdf
+LANG= it
 SHELL := /bin/bash #Need bash not shell
 
 export EXTRA_CCFLAGS;
@@ -30,7 +31,7 @@ clean:
 	if [[ -a "$(OUTPUT_NAME)" ]]; then rm -rv $(OUTPUT_NAME)/; fi;
 
 spellcheck:
-	./tools/spellcheck.sh
+	./tools/spellchecker/spellcheck.sh $(LANG)
 
 ci: spellcheck compile
 

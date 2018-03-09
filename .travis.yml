@@ -15,7 +15,9 @@ addons:
     - latex-xcolor
     - pgf
     - lmodern
+    - aspell
+    - aspell-it
 script:
-- make
+- make ci LANG=it
 before_deploy:
 - git fetch --tags
