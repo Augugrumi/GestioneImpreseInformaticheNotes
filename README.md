@@ -1,5 +1,9 @@
 # Gestione di Imprese Informatiche
 
+
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/Augugrumi/GestioneImpreseInformaticheNotes.svg?columns=all)](https://waffle.io/Augugrumi/GestioneImpreseInformaticheNotes)
+
+
 Questo repository contine gli appunti del corso [**Gestione di Imprese Informatiche**](http://informatica.math.unipd.it/laureamagistrale/gestionediimpreseinformatiche.html)
 dell'[Università di Padova](http://www.unipd.it/). 
 
