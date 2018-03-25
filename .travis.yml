@@ -21,3 +21,12 @@ script:
 - make ci LANG=it
 before_deploy:
 - git fetch --tags
+deploy:
+  provider: releases
+  api_key:
+    secure: YXHjP2rS48j6RlrhB77U0qX4ZVDdCr+Ob99HoWMXDqFbtWb7H3Ih6RfH1qMeBBwAeZtk96kIl3B/UBADwHkljpjm+u65qCmiLtphOP5lEYf4AEKVtFJjNlVT8JrrJtYw09KZSbOTaln0hevWo8LNtS40vXi4DWxEywdBX0r4RD2H5aJ35h61nmuwZN41oecQUNeX+s98R+xLC0h2S+McnnfmOs/OahFgasIQXS1gl8Hqz6lKN44y8GkbgcZcgZgwAS9h7JkDMiDPZxnESlDyhxpKH9+/QGGG3NCywK6AJriEJUJ/0T9LU/0GTdLv4SpshK3v90PDwOWqpX3zBIkqLWphhqhV4+41ALEp6HTU7z3vR404xIFTqrQk2X5loqZJa2hpT0KFkzZoOnupQ1oHGUY+A9YKVPBUHLp6peuWu5PSuoTCvix1xb/9vgzhbiW15UjbTZeTKCfldyuC2oI+/1O4HDR88/xXgRw+rFHF0QGIS67WrR5zl5FzpoQ2nqxvchL3FnJY7A3IizqHUKrkgk2XqhaPvNjbf9Jn4OQs3fkflZLGRNAS9/qUfJXU0sW5pnGTP9odHkKStWUJKZico5cBX1R+oNLxCS1O1IOZn2fXsX8nMtec7SMenMpIOSCP/k7/3sY8QJw6TPmq1W8oFcdhEr5nQVoVARN+CjZYueA=
+  file: GestioneDiImpreseInformatiche.pdf
+  skip_cleanup: true
+  on:
+    repo: Augugrumi/GestioneImpreseInformaticheNotes
+    tags: true
