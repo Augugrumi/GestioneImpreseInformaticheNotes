@@ -134,6 +134,7 @@ sympy-plots-for-*.tex/
 *.pdf
 
 res/listOfSections.tex
+config/metadata.autogen.tex
 
 Tesi.zip
 bin/*
