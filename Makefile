@@ -23,8 +23,8 @@ compile:
 		echo "Adding $$i into $(LIST_NAME)"; \
 		echo "\input{$$i}" >> res/$(LIST_NAME); \
 	done; \
-  sed -i "s/.*myVersion.*/\\newcommand{\\myVersion}{$(shell git describe)}" $(AUTOGEN_CONFIG_FILE); 2&>/dev/null || \
-  echo "\newcommand{\myVersion}{$(shell git describe)}" >> $(AUTOGEN_CONFIG_FILE); \
+	sed -i "s/.*myVersion.*/\\newcommand{\\myVersion}{$(shell git describe)}" $(AUTOGEN_CONFIG_FILE); 2&>/dev/null || \
+	echo "\newcommand{\myVersion}{$(shell git describe)}" >> $(AUTOGEN_CONFIG_FILE); \
 	$(CC) -C $(JOB_NAME); \
 	$(CC) $(CCFLAGS) $(EXTRA_CCFLAGS) $(JOB_NAME); \
 
