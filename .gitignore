@@ -83,6 +83,7 @@ acs-*.bib
 
 # listings
 *.lol
+*.loe
 
 # makeidx
 *.idx
@@ -139,4 +140,4 @@ config/metadata.autogen.tex
 Tesi.zip
 bin/*
 
-.fuse_hidden*
+.fuse_hidden
