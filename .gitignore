@@ -141,3 +141,5 @@ Tesi.zip
 bin/*
 
 .fuse_hidden
+.nfs*
+**/*.backup
