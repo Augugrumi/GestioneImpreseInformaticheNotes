@@ -140,6 +140,6 @@ config/metadata.autogen.tex
 Tesi.zip
 bin/*
 
-.fuse_hidden
+.fuse_hidden*
 .nfs*
 **/*.backup
