@@ -83,6 +83,7 @@ acs-*.bib
 
 # listings
 *.lol
+*.loe
 
 # makeidx
 *.idx
@@ -140,3 +141,5 @@ Tesi.zip
 bin/*
 
 .fuse_hidden*
+.nfs*
+**/*.backup

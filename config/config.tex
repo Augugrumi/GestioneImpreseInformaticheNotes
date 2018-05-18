@@ -5,9 +5,9 @@
 %**************************************************************
 % Frontespizio
 %**************************************************************
-\newcommand{\myName}{Matteo Di Pirro, Lisa Parma, Davide Polonio, Marco
-Zanella} % autore
-\newcommand{\myTitle}{Appunti di\\Gestione di Imprese Informatiche}
+\newcommand{\myName}{Emanuele Carraro, Giacomo Fornari, Lisa Parma, Matteo Di
+Pirro, Davide Polonio, Marco Zanella} % autore
+\newcommand{\myTitle}{Appunti di Gestione di Imprese Informatiche}
 \newcommand{\myUni}{Università degli Studi di Padova}           % università
 \newcommand{\myFaculty}{Corso di Laurea Magistrale in Informatica} % facoltà
 \newcommand{\myDepartment}{Dipartimento di Matematica}          % dipartimento
@@ -25,6 +25,8 @@ https://github.com/Augugrumi/GestioneImpreseInformaticheNotes/pulls}
 % Short cuts
 %**************************************************************
 \newcommand{\newglsacr}[2]{\newacronym[see={[Glossary:]{#1}}]{a-#1}{#1}{#2}}
+\newcommand{\mKeyword}[1]{#1\marginnote{\footnotesize \textit{#1}}[0cm]}
+\newcommand{\mKeywordit}[1]{\textit{\mKeyword{#1}}}
 
 %**************************************************************
 % Impostazioni di impaginazione
@@ -286,4 +288,45 @@ east);
   { }% space after theorem head; " " = normal interword space
   {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
 
-\newtheorem{definition}{Definizione}[section]
+\newtheorem{definition}{Definizione}[chapter]
+
+
+%---------------- EXAMPLE ----------
+\newtheoremstyle{example}% name of the style to be used
+  {\topsep}% measure of space to leave above the theorem. E.g.: 3pt
+  {\topsep}% measure of space to leave below the theorem. E.g.: 3pt
+  {\itshape}% name of font to use in the body of the theorem
+  {0pt}% measure of space to indent
+  {\bfseries}% name of head font
+  {. ---}% punctuation between head and body
+  { }% space after theorem head; " " = normal interword space
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
+
+\newtheorem{example}{Esempio}[chapter]
+
+%---------------- LIST OF DEFINITIONS AT THE END OF THE CHAPTER -----
+\makeatletter
+\def\ll@tdefn{%
+   \protect\thmtopatch@numbernametext
+     \ifx\@empty\thmt@shortoptarg\else[\thmt@shortoptarg]\fi
+     {\csname the\thmt@envname\endcsname}%
+     {\thmt@thmname}%
+}
+
+\newcommand\thmtopatch@numbernametext[3][]{%
+    #3 #2%
+  \if\relax\detokenize{#1}\relax\else\space -- #1\fi
+}
+
+\def\th@plain{%
+  \thm@notefont{}% same as heading font
+  \itshape % body font
+}
+\def\th@definition{%
+  \thm@notefont{}% same as heading font
+  \normalfont % body font
+}
+\makeatother
+
+\renewcommand{\thmtformatoptarg}[1]{ -- #1}
+\renewcommand{\listtheoremname}{Elenco delle definizioni}
